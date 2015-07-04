@@ -79,15 +79,17 @@ post '/account_delete' do
 end
 
 get '/feed' do
+  @user = current_user if current_user
   @title = "Nneomafeed"
-  if current_user
-    @feed_posts = Post.last(10)
-    @user = current_user
-    user_id = current_user
-    @body = params[:body]
-    Post.create({body: params[:body], user_id:[user_id]})
-  else
-    redirect '/'
-  end
+  @feed_posts = Post.last(10)
   erb :feed
+end
+
+post '/feed' do
+  @user = current_user if current_user
+  @title = "Nneomafeed"
+  if params[:body] != ''
+    @user.posts.create(body: params[:body], user_id: current_user.id)
+  end
+  redirect '/feed'
 end

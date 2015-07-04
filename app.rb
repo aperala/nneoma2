@@ -17,7 +17,6 @@ end
 
 get'/' do 
   @title = "Nneoma"
-  @user = User.all
   erb :home
 end
 

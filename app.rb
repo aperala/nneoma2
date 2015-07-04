@@ -44,9 +44,9 @@ post '/sign-up' do
   confirmation = params[:confirm_password]
   if confirmation == params[:user][:password]
     @user = User.create(params[:user])
-    @user.profile.create(params[:profile])
+            @user.create_profile(city: params[:profile][:city], description: params[:profile][:description])
 
-     "Thanks for signing up, #{@user.username}"
+    flash[:notice] = "Thanks for signing up, #{@user.username}"
   else
     flash[:notice] = "Your password & confirmation did not match, try again"
     redirect '/sign-up'

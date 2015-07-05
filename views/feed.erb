@@ -3,7 +3,7 @@
   <title></title>
 </head>
 <body>
-  <h2>Welcome to your Nneomnewsfeed, <%= @user.username %></h2>
+  <h2>Welcome to your Nneomnewsfeed, <%= @user.username %>!</h2>
   <h2>Add a new post here:</h2>
 
   <form method="POST" action="/feed">
@@ -11,11 +11,12 @@
     <input type="submit">
   </form>
 
-  <h3>What are your Nneomates up to?</h3>
+  <h3>What's up?</h3>
   <section id = "newsfeed">
   <% @feed_posts.reverse.each do |post| %>
     <p>
 
+      <%= post.user_id %>
       <%= post.body %>
 
     </p>
@@ -25,4 +26,3 @@
 </body>
 </html>
 
-<!-- post.user.username + '|' + -->

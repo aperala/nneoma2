@@ -55,12 +55,9 @@ end
 
 get '/profile' do
   @title =  "profile"
-  if current_user
-    @posts = current_user.posts
-    @username = current_user.username
-    @city = current_user.profile.city
-    @description = current_user.profile.description
-  end
+  @user = current_user if current_user
+  @posts = current_user.posts
+  @username = current_user.username
   erb :profile
 end
 

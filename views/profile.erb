@@ -1,1 +1,25 @@
-<h1>Hello World</h1>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+  <h4>Your latest posts:</h4>
+  <% @posts.reverse.each do |post| %>
+
+    <div id ="right"> 
+        <%= post.body %>
+    </div>
+  <% end %>
+
+  <div id = "left">
+    Username: <%= @username %>
+    City: <%= @user.profile.city %>
+    Bio: <%= @user.profile.description %>
+  </div>
+  
+  <a href="/edit">Edit your account</a>
+  <a href="/account_delete">Delete your account (warning: this is irreversible).</a>
+
+</body>
+</html>

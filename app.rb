@@ -49,7 +49,7 @@ post '/sign-up' do
     flash[:notice] = "Thanks for signing up, #{@user.username}"
   else
     flash[:notice] = "Your password & confirmation did not match, try again"
-    redirect '/sign-up'
+    redirect '/feed'
   end
 end
 

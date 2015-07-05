@@ -17,7 +17,7 @@ end
 
 get'/' do 
   @title = "Nneoma"
-  erb :home
+  erb :home, :layout => false
 end
 
 post '/sign-in' do 
@@ -25,19 +25,19 @@ post '/sign-in' do
   username = params["username"]
   password = params["password"]
   @user = User.where(username: username).first
-  
+
   if @user.password == password
     session[:user_id] = @user.id
     redirect '/feed'
   else
     redirect '/'
   end
-  erb :home
+  erb :home, :layout => false
 end
 
 get '/sign-up' do 
   @title = "Sign up for Nneoma!"
-  erb :sign_up
+  erb :sign_up, :layout => false
 end
 
 post '/sign-up' do
@@ -49,7 +49,7 @@ post '/sign-up' do
     flash[:notice] = "Thanks for signing up, #{@user.username}"
   else
     flash[:notice] = "Your password & confirmation did not match, try again"
-    redirect '/sign-up'
+    redirect '/feed'
   end
 end
 

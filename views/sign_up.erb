@@ -1,9 +1,9 @@
 <form method="POST" action="sign-up">
-  <input type="text" name="[user]username" placeholder="Username">
-  <input type="text" name="[user]email" placeholder="Email">
-  <input type="password" name="[user]password" placeholder="Password">
-  <input type="password" name="confirm_password" placeholder="Confirm Password">
-  <input type="text" name="[profile]city" placeholder="City">
-  <input type="text" name="[profile]description" placeholder="Bio">
+  <input type="text" name="[user]username" required placeholder="Username">
+  <input type="email" name="[user]email" required placeholder="Email">
+  <input type="password" name="[user]password" required placeholder="Password">
+  <input type="password" name="confirm_password"  required placeholder="Confirm Password">
+  <input type="text" name="[profile]city" required placeholder="City">
+  <input type="text" name="[profile]description" required placeholder="Bio">
   <input type="submit">
 </form>

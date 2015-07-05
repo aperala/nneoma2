@@ -11,7 +11,7 @@
   <% @feed_posts.reverse.each do |post| %>
     <p>
       <h5>
-        <%= User.find(post.user_id).username %>:
+        <%= User.find(post.user_id).username || "Nneomate" %>:
       </h5>
       <%= post.body %>
     </p>

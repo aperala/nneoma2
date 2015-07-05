@@ -78,7 +78,7 @@ post '/edit' do
 end
 
 get '/edit' do
-  "Hello world"
+  "Edit your account."
   erb :edit
 end
 
@@ -103,4 +103,10 @@ post '/feed' do
     @user.posts.create(body: params[:body], user_id: current_user.id)
   end
   redirect '/feed'
+end
+
+get '/signout' do
+  session[:user_id] = nil
+  flash[:notice] = "Signed Out Successfully. Come back soon!"
+  redirect '/'
 end

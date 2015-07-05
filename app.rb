@@ -43,7 +43,7 @@ end
 post '/sign-up' do
   confirmation = params[:confirm_password]
   if confirmation == params[:user][:password]
-    @user = User.create(params[:user])
+   @user = User.create(params[:user])
             @user.create_profile(city: params[:profile][:city], description: params[:profile][:description])
 
     flash[:notice] = "Thanks for signing up, #{@user.username}"

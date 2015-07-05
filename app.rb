@@ -61,10 +61,24 @@ get '/profile' do
   erb :profile
 end
 
-post '/profile' do
-  @user.update_attributes(params[:user])
-  @user.profile.update_attributes(params[:profile])
-  flash[:notice] = "Your account has been updated"
+post '/edit' do
+  if params[:user][:username] != ''
+    current_user.update(username: params[:user][:username])
+  end
+  if params[:user][:email] != ''
+    current_user.update_attributes(email: params[:user][:email])
+  end
+  if params[:profile][:city] != ''
+    current_user.profile.update(city: params[:profile][:city])
+  end
+  if params[:profile][:description] != ''
+    current_user.profile.update(description: params[:profile][:description])
+  end
+  redirect '/profile'
+end
+
+get '/edit' do
+  "Hello world"
   erb :edit
 end
 

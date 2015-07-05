@@ -7,11 +7,10 @@
   <% end %>
 
   <div id = "left">
-    Username: <%= @username %>
-    City: <%= @user.profile.city %>
+    Username: <%= @username %><br>
+    City: <%= @user.profile.city %><br>
     Bio: <%= @user.profile.description %>
   </div>
   
   <a href="/edit">Edit your account</a>
   <a href="/account_delete">Delete your account (warning: this is irreversible).</a>
-  

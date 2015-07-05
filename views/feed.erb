@@ -10,10 +10,11 @@
   <section id = "newsfeed">
   <% @feed_posts.reverse.each do |post| %>
     <p>
-
-      <%= post.user_id %>
+      <h5>
+        <%= User.find(post.user_id).username %>:
+      </h5>
       <%= post.body %>
-
     </p>
+    <hr>
   <% end %>
 </section>

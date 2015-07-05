@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+  <div class="navbar-header">
+  <nav>
+    <ul>
+      <li class="navbar">
+        <a class="navbar" href="/home">
+          Home
+        </a>
+      </li>
+      <li class="navbar">
+        <a class="navbar" href="/feed">
+          Nneomnewsfeed
+        </a>
+      </li>
+      <li class="navbar">
+        <a class="navbar" href="/profile">
+          Profile
+        </a>
+      </li>
+      <li>
+        <% if current_user %>
+           <a href="/signout">Sign Out</a>
+        <% end %>
+      </li>
+    </ul> 
+  </nav>
+
+<% if flash[:notice] %>
+  <div class="notice" style="background:yellow">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:warning] %>
+  <div class="warning" style="color:red">
+    <%= flash[:warning] %>
+  </div>
+<% end %>
+
+<p>
+<%= yield %>
+</p>
+
+</body>
+</html>

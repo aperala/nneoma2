@@ -1,16 +1,16 @@
-  <h4>Your latest posts:</h4>
-  <% @posts.reverse.each do |post| %>
+<h4>Your latest posts:</h4>
+<% @posts.reverse.each do |post| %>
 
-    <div id ="right"> 
-        <%= post.body %>
-    </div>
-  <% end %>
-
-  <div id = "left">
-    Username: <%= @username %><br>
-    City: <%= @user.profile.city %><br>
-    Bio: <%= @user.profile.description %>
+  <div id ="right"> 
+      <%= post.body %>
   </div>
-  
-  <a href="/edit">Edit your account</a>
-  <a href="/account_delete">Delete your account (warning: this is irreversible).</a>
+<% end %>
+
+<div id = "left">
+  Username: <%= @username %><br>
+  City: <%= @user.profile.city %><br>
+  Bio: <%= @user.profile.description %>
+</div>
+
+<a href="/edit">Edit your account</a>
+<a href="/account_delete">Delete your account (warning: this is irreversible).</a>

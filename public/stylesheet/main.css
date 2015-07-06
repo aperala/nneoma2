@@ -1,28 +1,27 @@
 body{
   margin: 0 auto;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background :
     linear-gradient(
-      rgba(3, 51, 32, 0.7),
-      rgba(3, 51, 32, 0.7)
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.8)
       ),
     url("/images/swirl_pattern.png");
 }
 
 a:link, a:visited {
   text-decoration: none;
-  color: #108008;
+  color: black;
 }
 
 li > a:link, li > a:visited {
   text-decoration: none;
-  color: ivory;
+  color: white;
 }
 
 a:hover {
   font-weight: bolder;
-  text-shadow: 0.1em 0.1em 0.05em #99E699;
-  color: #108008;
+  color: DarkRed;
 }
 
 hr {
@@ -40,7 +39,7 @@ nav{
   width: 100%;
   height: 50px;
   margin: 0;
-  background-color: #FF4DCC;
+  background-color: #8C001A;
 }
 
 nav > ul {
@@ -56,13 +55,14 @@ textarea {
   width: 40%;
   border-radius: 5px;
   font-size: 18px;
-  background-color: #FFDEFA;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .author {
   margin-right: .3em;
   font-weight: bold;
-  color: #FF4DCC;
+  color: #8C001A;
 }
 
 .feedh3{
@@ -75,7 +75,7 @@ textarea {
 .formh2 {
   margin-top: 1em;
   font-weight: bold;
-  color: DeepPink;
+  color: black;
 }
 
 .navbar {
@@ -93,7 +93,7 @@ textarea {
   vertical-align: middle;
   border-radius: 100px;
   background-color: white;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 #feedfirsth2{
@@ -109,7 +109,8 @@ textarea {
   width: 70%;
   margin: 0 auto;
   padding: 1em;
-  background-color: #FFDEFA;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 #homeh4{
@@ -123,22 +124,24 @@ textarea {
   text-align: center;
   vertical-align: middle;
   border-radius: 100px;
-  background-color: #FF4DCC;
-  color: white;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
 }
 
 #homepage {
   display: inline-block;
   text-align: left;
-  font-size: 64px;
-  font-family: 'Leckerli One', cursive;
-  text-shadow:0 .032em 0 #b0b0b0,0 .15em .11em rgba(0,0,0,.15),0 .25em .021em rgba(0,0,0,.1),0 .32em .32em rgba(0,0,0,.1);color:#FF4DCC;
+  font-size: 72px;
+  color: #8C001A;
+  font-family: 'Kaushan Script', cursive;
+  text-shadow:0 .032em 0 #8C001A .15em .11em rgba(255,255,255,.15),0 .25em .021em rgba(255,255,255,.1),0 .32em .32em rgba(255,255,255,.2);color:#8C001A;
 }
 
 #profileh4{
   text-align: center;
   font-size: 24px;
-  color: #088050;
+  color: black;
 }
 
 #left{
@@ -148,16 +151,23 @@ textarea {
   vertical-align: top;
   padding: 1em;
   background-color: white;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 #pigeon {
   position: relative;
   display: inline-block;
   vertical-align: top;
-  margin: 10px 10px;
-  -webkit-animation: wiggle 2s linear infinite;
+  margin: 30px 30px;
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
 }
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 
 #right{
   width: 50%;
@@ -165,7 +175,7 @@ textarea {
   margin-top: 40px;
   text-align: center;
   background-color: white;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 #signupform{
@@ -190,44 +200,24 @@ textarea {
   position: relative;
   border-radius: 10px;
   border: none;
-  background-color: #088050;
+  background-color: black;
   color: white;
-  -webkit-animation: wiggle 2s linear infinite;
+  -webkit-transition: width 2s;
+}
+
+#submit:hover {
+  width: 150px;
 }
 
 #warn {
   font-size: small;
-  color: DeepPink;
+  color: DarkRed;
 }
 
 #your_posts {
   padding: 1em;
 }
 
-/* Keyframes */
-@-webkit-keyframes wiggle {
-  0%, 7% {
-    transform: rotateZ(0);
-  }
-  15% {
-    transform: rotateZ(-15deg);
-  }
-  20% {
-    transform: rotateZ(10deg);
-  }
-  25% {
-    transform: rotateZ(-10deg);
-  }
-  30% {
-    transform: rotateZ(6deg);
-  }
-  35% {
-    transform: rotateZ(-4deg);
-  }
-  40%, 100% {
-    transform: rotateZ(0);
-  }
-}
 
 
 

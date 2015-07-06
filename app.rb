@@ -54,11 +54,15 @@ post '/sign-up' do
 end
 
 get '/profile' do
-  @title =  "profile"
-  @user = current_user if current_user
-  @posts = current_user.posts
-  @username = current_user.username
-  erb :profile
+  if current_user
+    @title =  "profile"
+    @user = current_user if current_user
+    @posts = current_user.posts
+    @username = current_user.username
+    erb :profile
+  else
+    redirect '/'
+  end
 end
 
 post '/edit' do
@@ -90,10 +94,14 @@ post '/account_delete' do
 end
 
 get '/feed' do
-  @user = current_user if current_user
-  @title = "Nneomafeed"
-  @feed_posts = Post.last(10)
-  erb :feed
+  if current_user
+    @user = current_user if current_user
+    @title = "Nneomafeed"
+    @feed_posts = Post.last(10)
+    erb :feed
+  else
+  redirect '/'
+  end
 end
 
 post '/feed' do

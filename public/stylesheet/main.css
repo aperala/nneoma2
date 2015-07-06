@@ -3,8 +3,8 @@ body{
   font-family: 'Ubuntu', sans-serif;
   background :
     linear-gradient(
-      rgba(3, 51, 32, 0.8),
-      rgba(3, 51, 32, 0.8)
+      rgba(3, 51, 32, 0.7),
+      rgba(3, 51, 32, 0.7)
       ),
     url("/images/swirl_pattern.png");
 }
@@ -124,6 +124,7 @@ textarea {
   vertical-align: middle;
   border-radius: 100px;
   background-color: #FF4DCC;
+  color: white;
 }
 
 #homepage {

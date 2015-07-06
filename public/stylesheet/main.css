@@ -11,7 +11,7 @@ body{
 
 a:link, a:visited {
   text-decoration: none;
-  color: green;
+  color: #108008;
 }
 
 li > a:link, li > a:visited {
@@ -20,7 +20,8 @@ li > a:link, li > a:visited {
 }
 
 a:hover {
-  font-weight: bold;
+  font-weight: bolder;
+  text-shadow: 0.1em 0.1em 0.05em #99E699;
   color: #108008;
 }
 
@@ -118,8 +119,7 @@ textarea {
 #homeform{
   width: 300px;
   height: 300px;
-  position: relative;
-  margin: auto;
+  margin: 0 auto;
   text-align: center;
   vertical-align: middle;
   border-radius: 100px;
@@ -127,8 +127,11 @@ textarea {
 }
 
 #homepage {
-  text-align: center;
-  color: white;
+  display: inline-block;
+  text-align: left;
+  font-size: 64px;
+  font-family: 'Leckerli One', cursive;
+  text-shadow:0 .032em 0 #b0b0b0,0 .15em .11em rgba(0,0,0,.15),0 .25em .021em rgba(0,0,0,.1),0 .32em .32em rgba(0,0,0,.1);color:#FF4DCC;
 }
 
 #profileh4{
@@ -145,6 +148,14 @@ textarea {
   padding: 1em;
   background-color: white;
   background-color: rgba(255, 255, 255, 0.7);
+}
+
+#pigeon {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px 10px;
+  -webkit-animation: wiggle 2s linear infinite;
 }
 
 #right{

@@ -1,75 +1,221 @@
 body{
+  margin: 0 auto;
+  font-family: 'Ubuntu', sans-serif;
+  background :
+    linear-gradient(
+      rgba(3, 51, 32, 0.8),
+      rgba(3, 51, 32, 0.8)
+      ),
+    url("/images/swirl_pattern.png");
+}
 
+a:link, a:visited {
+  text-decoration: none;
+  color: green;
+}
+
+li > a:link, li > a:visited {
+  text-decoration: none;
+  color: ivory;
+}
+
+a:hover {
+  font-weight: bold;
+  color: #108008;
+}
+
+hr {
+  width: 80%;
+}
+
+input {
+  width: 150px;
+  height: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 nav{
-	
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  background-color: #FF4DCC;
 }
 
-#editfirstform{
-
+nav > ul {
+  margin: 0;
+  padding-top: 1em;
+  padding-left: .5em;
+  overflow: hidden;
+  list-style-type: none;
+  font-size: 18px;
 }
 
-#editsecondform{
-
+textarea {
+  width: 40%;
+  border-radius: 5px;
+  font-size: 18px;
+  background-color: #FFDEFA;
 }
 
-#editfirsth2{
-
+.author {
+  margin-right: .3em;
+  font-weight: bold;
+  color: #FF4DCC;
 }
 
-#editsecondh2{
+.feedh3{
+  position: relative;
+  left: 150px;
+  text-align: left;
+  color: white;
+}
 
+.formh2 {
+  margin-top: 1em;
+  font-weight: bold;
+  color: DeepPink;
+}
+
+.navbar {
+  display: inline;
+  padding-right: 2em;
+}
+
+#editform{
+  width: 500px;
+  height: 300px;
+  position: relative;
+  margin: 40px auto;
+  padding-top: 10px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 100px;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 #feedfirsth2{
-
-}
-
-#feedsecondh2{
-
-}
-
-#feedh3{
-
+  text-align: center;
+  color: white;
 }
 
 #feedform{
-
+  text-align: center;
 }
 
 #newsfeed{
-
+  width: 70%;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: #FFDEFA;
 }
 
 #homeh4{
-
+  padding-top: 60px;
 }
 
 #homeform{
+  width: 300px;
+  height: 300px;
+  position: relative;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 100px;
+  background-color: #FF4DCC;
+}
 
+#homepage {
+  text-align: center;
+  color: white;
 }
 
 #profileh4{
-
-}
-
-#right{
-
+  text-align: center;
+  font-size: 24px;
+  color: #088050;
 }
 
 #left{
+  width: 25%;
+  display: inline-block;
+  margin: 40px 50px 0 20px;
+  vertical-align: top;
+  padding: 1em;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
+}
 
+#right{
+  width: 50%;
+  display: inline-block;
+  margin-top: 40px;
+  text-align: center;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 #signupform{
-	
+	width: 450px;
+  height: 400px;
+  position: relative;
+  margin: 40px auto;
+  padding-top: 10px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 100px;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
+#signout {
+  float: right;
+}
 
+#submit {
+  width: 80px;
+  position: relative;
+  border-radius: 10px;
+  border: none;
+  background-color: #088050;
+  color: white;
+  -webkit-animation: wiggle 2s linear infinite;
+}
 
+#warn {
+  font-size: small;
+  color: DeepPink;
+}
 
+#your_posts {
+  padding: 1em;
+}
 
+/* Keyframes */
+@-webkit-keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
 
 
 

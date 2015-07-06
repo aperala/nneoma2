@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><link rel="stylesheet" type="text/css" href= “/stylesheet/main.css" >
-<script src= "main.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href= "/stylesheet/main.css">
+  <script src= "main.js"></script>
+  <title><%= @title %></title>
 </head>
 
 <body>
-  <div class="navbar-header">
   <nav>
     <ul>
       <li class="navbar">
         <a class="navbar" href="/feed">
-          Home
+          Newsfeed
         </a>
       </li>
       <li class="navbar">
@@ -24,7 +26,7 @@
           Edit your account
         </a>
       </li>
-      <li>
+      <li class="navbar" id="signout">
         <% if current_user %>
            <a href="/signout">Sign Out</a>
         <% end %>
@@ -45,7 +47,7 @@
 <% end %>
 
 <p>
-<%= yield %>
+  <%= yield %>
 </p>
 
 </body>

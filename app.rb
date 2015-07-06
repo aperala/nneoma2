@@ -17,7 +17,7 @@ end
 
 get'/' do 
   @title = "Nneoma"
-  erb :home, :layout => false
+  erb :home, :layout => :home
 end
 
 post '/sign-in' do 
@@ -32,24 +32,24 @@ post '/sign-in' do
   else
     redirect '/'
   end
-  erb :home, :layout => false
+  erb :home, :layout => :home
 end
 
 get '/sign-up' do 
   @title = "Sign up for Nneoma!"
-  erb :sign_up, :layout => false
+  erb :sign_up, :layout => :sign_up
 end
 
 post '/sign-up' do
   confirmation = params[:confirm_password]
   if confirmation == params[:user][:password]
    @user = User.create(params[:user])
-            @user.create_profile(city: params[:profile][:city], description: params[:profile][:description])
+           @user.create_profile(city: params[:profile][:city], description: params[:profile][:description])
 
     flash[:notice] = "Thanks for signing up, #{@user.username}"
   else
     flash[:notice] = "Your password & confirmation did not match, try again"
-    redirect '/feed'
+    redirect '/sign-up'
   end
 end
 

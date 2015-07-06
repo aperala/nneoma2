@@ -1,20 +1,20 @@
   <h2 id = "feedfirsth2">Welcome to your Nneomnewsfeed, <%= @user.username %>!</h2>
-  <h2 id = "feedsecondh2">Add a new post here:</h2>
+  <h3 class = "feedh3">Add a new post:</h3>
 
   <form id = "feedform" method="POST" action="/feed">
-    <textarea row="5" type="text" name="body" placeholder="Add a new post" maxlength="150" width: 400px; height: 50px;></textarea>
+    <textarea rows="4" cols="60" type="text" name="body" placeholder="Add a new post" maxlength="150"></textarea>
     <input type="submit">
   </form>
 
-  <h3 id = "feedh3">What's up?</h3>
+  <h3 class = "feedh3">Here's the latest from your Nneomates:</h3>
   <section id = "newsfeed">
   <% @feed_posts.reverse.each do |post| %>
     <p> 
-      <h5> 
-        <%= User.find(post.user_id).username || "Nneomate" %>:
-      </h5>
+      <span class="author"> 
+        <%= User.find(post.user_id).username + ":  " || "Nneomate" + ":  " %>
+      </span>
       <%= post.body %>
     </p>
-    <hr>
+    
   <% end %>
 </section>

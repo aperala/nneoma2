@@ -1,0 +1,20 @@
+  <h2 id = "feedfirsth2">Welcome to your Nneomnewsfeed, <%= @user.username %>!</h2>
+  <h3 class = "feedh3">Add a new post:</h3>
+
+  <form id = "feedform" method="POST" action="/feed">
+    <textarea rows="4" cols="60" type="text" name="body" placeholder="Add a new post" maxlength="150"></textarea>
+    <input type="submit">
+  </form>
+
+  <h3 class = "feedh3">Here's the latest from your Nneomates:</h3>
+  <section id = "newsfeed">
+  <% @feed_posts.reverse.each do |post| %>
+    <p> 
+      <span class="author"> 
+        <%= User.find(post.user_id).username + ":  " || "Nneomate" + ":  " %>
+      </span>
+      <%= post.body %>
+    </p>
+    
+  <% end %>
+</section>

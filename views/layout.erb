@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href= "/stylesheet/main.css">
+  <script src= "main.js"></script>
+  <title><%= @title %></title>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li class="navbar">
+        <a class="navbar" href="/feed">
+          Newsfeed
+        </a>
+      </li>
+      <li class="navbar">
+        <a class="navbar" href="/profile">
+          Profile
+        </a>
+      </li>
+      <li class="navbar">
+        <a class="navbar" href="/edit">
+          Edit your account
+        </a>
+      </li>
+      <li class="navbar" id="signout">
+        <% if current_user %>
+           <a href="/signout">Sign Out</a>
+        <% end %>
+      </li>
+    </ul> 
+  </nav>
+
+<% if flash[:notice] %>
+  <div class="notice" style="background:yellow">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:warning] %>
+  <div class="warning" style="color:red">
+    <%= flash[:warning] %>
+  </div>
+<% end %>
+
+<p>
+  <%= yield %>
+</p>
+
+</body>
+</html>

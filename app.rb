@@ -17,8 +17,7 @@ end
 
 get'/' do 
   @title = "Nneoma"
-  @user = User.all
-  erb :home
+  erb :home, :layout => :home
 end
 
 post '/sign-in' do 
@@ -26,28 +25,28 @@ post '/sign-in' do
   username = params["username"]
   password = params["password"]
   @user = User.where(username: username).first
-  
+
   if @user.password == password
     session[:user_id] = @user.id
     redirect '/feed'
   else
     redirect '/'
   end
-  erb :home
+  erb :home, :layout => :home
 end
 
 get '/sign-up' do 
   @title = "Sign up for Nneoma!"
-  erb :sign_up
+  erb :sign_up, :layout => :sign_up
 end
 
 post '/sign-up' do
   confirmation = params[:confirm_password]
   if confirmation == params[:user][:password]
-    @user = User.create(params[:user])
-    @user.profile.create(params[:profile])
-
-     "Thanks for signing up, #{@user.username}"
+   @user = User.create(params[:user])
+           @user.create_profile(city: params[:profile][:city], description: params[:profile][:description])
+    session[:user_id] = @user.id
+    redirect '/feed'       
   else
     flash[:notice] = "Your password & confirmation did not match, try again"
     redirect '/sign-up'
@@ -55,20 +54,35 @@ post '/sign-up' do
 end
 
 get '/profile' do
-  @title =  "profile"
   if current_user
+    @title =  "profile"
+    @user = current_user if current_user
     @posts = current_user.posts
     @username = current_user.username
-    @city = current_user.profile.city
-    @description = current_user.profile.description
+    erb :profile
+  else
+    redirect '/'
   end
-  erb :profile
 end
 
-post '/profile' do
-  @user.update_attributes(params[:user])
-  @user.profile.update_attributes(params[:profile])
-  flash[:notice] = "Your account has been updated"
+post '/edit' do
+  if params[:user][:username] != ''
+    current_user.update(username: params[:user][:username])
+  end
+  if params[:user][:email] != ''
+    current_user.update_attributes(email: params[:user][:email])
+  end
+  if params[:profile][:city] != ''
+    current_user.profile.update(city: params[:profile][:city])
+  end
+  if params[:profile][:description] != ''
+    current_user.profile.update(description: params[:profile][:description])
+  end
+  redirect '/profile'
+end
+
+get '/edit' do
+  "Edit your account."
   erb :edit
 end
 
@@ -80,15 +94,27 @@ post '/account_delete' do
 end
 
 get '/feed' do
-  @title = "Nneomafeed"
   if current_user
+    @user = current_user if current_user
+    @title = "Nneomafeed"
     @feed_posts = Post.last(10)
-    @user = current_user
-    user_id = current_user
-    @body = params[:body]
-    Post.create({body: params[:body], user_id:[user_id]})
+    erb :feed
   else
-    redirect '/'
+  redirect '/'
   end
-  erb :feed
+end
+
+post '/feed' do
+  @user = current_user if current_user
+  @title = "Nneomafeed"
+  if params[:body] != ''
+    @user.posts.create(body: params[:body], user_id: current_user.id)
+  end
+  redirect '/feed'
+end
+
+get '/signout' do
+  session[:user_id] = nil
+  flash[:notice] = "Signed Out Successfully. Come back soon!"
+  redirect '/'
 end

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href= "/stylesheet/main.css">
+  <script src= "main.js"></script>
+  <title><%= @title %></title>
+</head>
+<body>
+
+  <img src="/images/pigeon_9.png" id="pigeon">
+  <h1 id="homepage">Welcome to Nneoma</h1>
+  <div id = "homeform">
+    <h4 id = "homeh4"> Already a member? Sign in: </h4>
+
+    <form method="POST" action="sign-in">
+      <input type="text" name="username" required placeholder="Username">
+      <br>
+      <input type="password" name="password" required placeholder="Password">
+      <br>
+      <input type="submit" id="submit">
+      <br>
+    </form>
+      
+    Not a member yet? <a href = "/sign-up">Click here</a>
+  </div>
+</body>
+</html>

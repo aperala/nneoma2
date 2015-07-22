@@ -124,9 +124,10 @@ textarea {
   text-align: center;
   vertical-align: middle;
   border-radius: 100px;
-  background-color: white;
+  background-color: blue;
   background-color: rgba(255, 255, 255, 0.9);
   color: black;
+
 }
 
 #homepage {
